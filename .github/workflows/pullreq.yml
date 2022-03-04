@@ -16,7 +16,7 @@ jobs:
          run: pip install -r requirements.txt
        - name: Run pytest
          id: Pytest 
-         run: pytest -vs tests/
+         run: pytest -vs tests/ >> /reports/result
   Build-app:        
     needs: Tests-app
     runs-on: ubuntu-latest
