@@ -21,4 +21,4 @@ on:
           name: reports
           path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
         if: ${{ succes() }}
-        run: github.action.pull_request
+      - uses: peter-evans/create-pull-request@v3
