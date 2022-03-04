@@ -22,11 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull request
-      - uses: vsoch/pull-request-action
+        uses: vsoch/pull-request-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: "master"
-      - uses: actions/upload-artifact@v3
+      - name: upload
+        uses: actions/upload-artifact@v3
         with:
            name: reports
            path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
