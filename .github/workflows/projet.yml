@@ -25,4 +25,4 @@ jobs:
           with:
             context: .
             push: true
-            tags: ${{secrets.DOCKER_USERNAME}}/intropytest:${{ env.APP_VERSION }}
+            tags: ${{secrets.DOCKER_USERNAME}}/intropytest
