@@ -21,5 +21,5 @@ jobs:
           with:
             name: reports
             path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
-          if: ${{ succes() }}
+          if: ${{ success() }}
         - uses: peter-evans/create-pull-request@v3
