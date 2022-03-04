@@ -1,0 +1,33 @@
+name: Tests unitaire de l'app
+on: 
+  push:
+    branches: 
+      - master
+jobs:     
+  Tests-app: 
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v3
+       - name: Install python3
+         uses: actions/setup-python@v2
+         with:
+           python-version: "3.10"
+       - name: Setup python
+         run: pip install -r requirements.txt
+       - name: Run pytest
+         id: Pytest 
+         run: pytest -vs tests/
+  Build-app:        
+    needs: Tests-app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull request
+        uses: vsoch/pull-request-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "master"
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+           name: reports
+           path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
