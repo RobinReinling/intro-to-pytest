@@ -29,5 +29,5 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v3
         with:
-           name: reports
-           path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
+           name: result
+           path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/result
