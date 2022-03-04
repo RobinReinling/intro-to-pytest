@@ -17,12 +17,16 @@ jobs:
        - name: Run pytest
          id: Pytest 
          run: pytest -vs tests/
-       - uses: actions/upload-artifact@v3
-         with:
-           name: reports
-           path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
   Build-app:        
     needs: Tests-app
     runs-on: ubuntu-latest
     steps:
-      - uses: peter-evans/create-pull-request@v3
+      - name: Pull request
+      - uses: vsoch/pull-request-action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "master"
+      - uses: actions/upload-artifact@v3
+        with:
+           name: reports
+           path: /home/runner/work/intro-to-pytest/intro-to-pytest/reports/
