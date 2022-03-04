@@ -2,7 +2,7 @@ name: Tests unitaire de l'app
 on: 
   push:
     branches: 
-      - master
+      - dev
 jobs:     
   Tests-app: 
      runs-on: ubuntu-latest
